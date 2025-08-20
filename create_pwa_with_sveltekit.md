@@ -71,14 +71,16 @@ export const prerender = true;
 ---
 
 ```
-/project-directory
-- /src
--- service-worker.js
--- /routes
---- +page.js
--- /static
---- icon.svg
---- manifest.json
+project-directory
+├── src
+│   ├── app.html (edited)
+│   ├── service-worker.js
+│   ├── routes
+│   │   └── +page.js
+│   └── static
+│       ├── icon.svg
+│       └── manifest.json
+├── vite.config (edited)
 ```
 
 ---
