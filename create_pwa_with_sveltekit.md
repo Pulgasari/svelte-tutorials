@@ -74,7 +74,10 @@ export const prerender = true;
 /project-directory
 - /src
 -- service-worker.js
+-- /routes
+--- +page.js
 -- /static
+--- icon.svg
 --- manifest.json
 ```
 
