@@ -28,7 +28,13 @@ Link the Manifest file in `<head>` of the `app.html` file.
 
 ### 3. Create a Service Worker
 
-Create a `service-worker.js` or `sw.js` file.
+First install `workbox-precaching` in SvelteKit project directory.
+
+```
+npm install -D workbox-precaching
+```
+
+Now reate a `service-worker.js` file.
 
 ```js
 import { build, files, prerendered, version } from '$service-worker';
@@ -44,6 +50,17 @@ const precache_list = [
 precacheAndRoute(precache_list);
 ```
 
+Add to `vite.config`:
+
+```
+export default defineConfig({
+  plugins: [sveltekit()],
+  define: {
+    'process.env.NODE_ENV': '"production"'
+  }
+});
+```
+
 ### 4. Enable Prerendering
 
 Create `+page.js` in `/routes`.
@@ -51,6 +68,16 @@ Create `+page.js` in `/routes`.
 ```js
 export const prerender = true;
 ```
+---
+
+```
+/project-directory
+- /src
+-- service-worker.js
+-- /static
+--- manifest.json
+```
+
 ---
 
 ## Additional Links and Infos
